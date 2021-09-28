@@ -35,6 +35,7 @@
 
 			add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 
+			// Setting form fields
 			$this->form_fields = array(
 				'enabled' => array(
 					'title' => __( 'Enable/Disable', 'woocommerce' ),
