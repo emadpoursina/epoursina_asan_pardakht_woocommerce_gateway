@@ -37,24 +37,29 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 			$this -> title = $this -> get_option('title');
 
 			add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
+		}
 
+		/**
+		 * Initialize Gateway from files setting section
+		 */
+		public function init_form_fields() {
 			// Setting form fields
 			$this->form_fields = array(
 				'enabled' => array(
-					'title' => __( 'Enable/Disable', 'woocommerce' ),
+					'title' => __( 'فعال/غیرفعال', 'woocommerce' ),
 					'type' => 'checkbox',
-					'label' => __( 'Enable Cheque Payment', 'woocommerce' ),
+					'label' => __( 'فعال کردن درگاه پرداخت', 'woocommerce' ),
 					'default' => 'yes'
 				),
 				'title' => array(
-					'title' => __( 'Title', 'woocommerce' ),
+					'title' => __( 'عنوان', 'woocommerce' ),
 					'type' => 'text',
-					'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
+					'description' => __( 'درگاه پرداخت رمزارز آسان پرداخت', 'woocommerce' ),
 					'default' => __( 'Cheque Payment', 'woocommerce' ),
 					'desc_tip'      => true,
 				),
 				'description' => array(
-					'title' => __( 'Customer Message', 'woocommerce' ),
+					'title' => __( 'عنوان مشتری', 'woocommerce' ),
 					'type' => 'textarea',
 					'default' => ''
 				)
