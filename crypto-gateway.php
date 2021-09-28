@@ -32,6 +32,8 @@
 			$this -> init_settings();
 
 			$this -> title = $this -> get_option('title');
+
+			add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 		}
 	}
 }
