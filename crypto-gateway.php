@@ -22,7 +22,18 @@
  */
 
  function init_asan_pardakht_gateway_class() {
-    class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {}
+    class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {
+		function __construct() {
+			$this -> id = "asan_pardakht_gateway";
+			$this -> icon = "";
+			$this -> method_title = "درگاه رمزارز آسان پرداخت";
+			$this -> method_description = "این یک درگاه رمزارز است.";
+			$this -> init_form_fields();
+			$this -> init_settings();
+
+			$this -> title = $this -> get_option('title');
+		}
+	}
 }
 
 add_action( 'plugins_loaded', 'init_asan_pardakht_gateway_class' );
