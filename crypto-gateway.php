@@ -26,3 +26,11 @@
 }
 
 add_action( 'plugins_loaded', 'init_asan_pardakht_gateway_class' );
+
+// Show gateway setting
+function add_your_gateway_class( $methods ) {
+    $methods[] = 'WC_Gateway_Your_Gateway'; 
+    return $methods;
+}
+
+add_filter( 'woocommerce_payment_gateways', 'add_your_gateway_class' );
