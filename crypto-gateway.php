@@ -71,9 +71,9 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 add_action( 'plugins_loaded', 'init_asan_pardakht_gateway_class' );
 
 // Show gateway setting
-function add_your_gateway_class( $methods ) {
-    $methods[] = 'WC_Gateway_Your_Gateway'; 
+function add_asan_pardakht_gateway_class( $methods ) {
+    $methods[] = 'WC_Gateway_Asan_Pardakht_Gateway'; 
     return $methods;
 }
 
-add_filter( 'woocommerce_payment_gateways', 'add_your_gateway_class' );
+add_filter( 'woocommerce_payment_gateways', 'add_asan_pardakht_gateway_class' );
