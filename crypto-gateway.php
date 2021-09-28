@@ -34,6 +34,27 @@
 			$this -> title = $this -> get_option('title');
 
 			add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
+
+			$this->form_fields = array(
+				'enabled' => array(
+					'title' => __( 'Enable/Disable', 'woocommerce' ),
+					'type' => 'checkbox',
+					'label' => __( 'Enable Cheque Payment', 'woocommerce' ),
+					'default' => 'yes'
+				),
+				'title' => array(
+					'title' => __( 'Title', 'woocommerce' ),
+					'type' => 'text',
+					'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
+					'default' => __( 'Cheque Payment', 'woocommerce' ),
+					'desc_tip'      => true,
+				),
+				'description' => array(
+					'title' => __( 'Customer Message', 'woocommerce' ),
+					'type' => 'textarea',
+					'default' => ''
+				)
+			);
 		}
 	}
 }
