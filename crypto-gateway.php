@@ -20,3 +20,9 @@
  * Text Domain:       crypto-gateway
  * Domain Path:       /languages
  */
+
+ function init_asan_pardakht_gateway_class() {
+    class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {}
+}
+
+add_action( 'plugins_loaded', 'init_asan_pardakht_gateway_class' );
