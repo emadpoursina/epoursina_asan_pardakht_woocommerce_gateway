@@ -24,8 +24,9 @@
  // Check for woocommerce activation
 if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) return;
 
- function init_asan_pardakht_gateway_class() {
-    class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {
+// Initialize the plugin
+function init_asan_pardakht_gateway_class() {
+	class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {
 		function __construct() {
 			$this -> id = "asan_pardakht_gateway";
 			$this -> icon = "";
@@ -40,10 +41,9 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 		}
 
 		/**
-		 * Initialize Gateway from files setting section
+		 * Initialize gateway setting form fileds
 		 */
 		public function init_form_fields() {
-			// Setting form fields
 			$this->form_fields = array(
 				'enabled' => array(
 					'title' => __( 'فعال/غیرفعال', 'woocommerce' ),
