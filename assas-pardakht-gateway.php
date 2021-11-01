@@ -8,16 +8,16 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @package           Crypto_Gateway
+ * @package           Assan_pardakht_woocommerce_gateway
  *
  * @wordpress-plugin
- * Plugin Name:       Crypto gateway
+ * Plugin Name:       Assan_pardakht_woocommerce_gateway
  * Description:       This is a wordpress plugin to work with Erfan Poursina's crypto gateway
  * Version:           1.0.0
  * Author:            Emad Poursina
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       crypto-gateway
+ * Text Domain:       assan-pardakht-gateway
  * Domain Path:       /languages
  */
 
@@ -27,11 +27,13 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 // Initialize the plugin
 function init_asan_pardakht_gateway_class() {
 	class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {
+		$plugin_dir_path = plugin_dir_path( __FILE__ );
+
 		function __construct() {
-			$this -> id = "asan_pardakht_gateway";
-			$this -> icon = "";
-			$this -> method_title = "درگاه رمزارز آسان پرداخت";
-			$this -> method_description = "این یک درگاه رمزارز است.";
+			$this -> id = 'asan_pardakht_gateway';
+			$this -> icon = $plugin_dir_path . 'assests/images/logo.png';
+			$this -> method_title = 'درگاه رمزارز آسان پرداخت';
+			$this -> method_description = 'این یک درگاه رمزارز است.';
 			$this -> init_form_fields();
 			$this -> init_settings();
 
