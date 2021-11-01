@@ -55,7 +55,7 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 					'title' => __( 'عنوان', 'woocommerce' ),
 					'type' => 'text',
 					'description' => __( 'درگاه پرداخت رمزارز آسان پرداخت', 'woocommerce' ),
-					'default' => __( 'Cheque Payment', 'woocommerce' ),
+					'default' => __( 'درگاه آسان پرداخت', 'woocommerce' ),
 					'desc_tip'      => true,
 				),
 				'description' => array(
