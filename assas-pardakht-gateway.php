@@ -19,15 +19,16 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       assan-pardakht-gateway
  * Domain Path:       /languages
- */
+*/
 
- // Check for woocommerce activation
+// Check for woocommerce activation
 if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) return;
+
+$plugin_dir_path = plugin_dir_path( __FILE__ );
 
 // Initialize the plugin
 function init_asan_pardakht_gateway_class() {
 	class WC_Gateway_Asan_Pardakht_Gateway extends WC_Payment_Gateway {
-		$plugin_dir_path = plugin_dir_path( __FILE__ );
 
 		function __construct() {
 			$this -> id = 'asan_pardakht_gateway';
