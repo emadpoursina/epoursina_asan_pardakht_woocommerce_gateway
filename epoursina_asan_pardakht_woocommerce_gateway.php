@@ -61,7 +61,7 @@ function init_asan_pardakht_gateway_class() {
 					'desc_tip'      => true,
 				),
 				'description' => array(
-					'title' => __( 'عنوان مشتری', 'epoursina_asan_pardakht_gateway' ),
+					'title' => __( 'توضیحات', 'epoursina_asan_pardakht_gateway' ),
 					'type' => 'textarea',
 					'default' => ''
 				)
