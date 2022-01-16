@@ -33,12 +33,11 @@ function init_asan_pardakht_gateway_class() {
 		function __construct() {
 			$this -> id = 'asan_pardakht_gateway';
 			$this -> icon = $plugin_dir_path . 'assests/images/logo.png';
+			$this -> has_fields = false; 
 			$this -> method_title = 'درگاه رمزارز آسان پرداخت';
 			$this -> method_description = 'این یک درگاه رمزارز است.';
 			$this -> init_form_fields();
 			$this -> init_settings();
-
-			$this -> title = $this -> get_option('title');
 
 			add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 		}
