@@ -49,20 +49,20 @@ function init_asan_pardakht_gateway_class() {
 		public function init_form_fields() {
 			$this->form_fields = array(
 				'enabled' => array(
-					'title' => __( 'فعال/غیرفعال', 'woocommerce' ),
+					'title' => __( 'فعال کردن درگاه', 'assan_pardakht_gateway' ),
 					'type' => 'checkbox',
-					'label' => __( 'فعال کردن درگاه پرداخت', 'woocommerce' ),
+					'label' => __( 'فعال کردن درگاه پرداخت', 'assan_pardakht_gateway' ),
 					'default' => 'yes'
 				),
 				'title' => array(
-					'title' => __( 'عنوان', 'woocommerce' ),
+					'title' => __( 'عنوان', 'assan_pardakht_gateway' ),
 					'type' => 'text',
-					'description' => __( 'درگاه پرداخت رمزارز آسان پرداخت', 'woocommerce' ),
-					'default' => __( 'درگاه آسان پرداخت', 'woocommerce' ),
+					'description' => __( 'درگاه پرداخت رمزارز آسان پرداخت', 'assan_pardakht_gateway' ),
+					'default' => __( 'درگاه آسان پرداخت', 'assan_pardakht_gateway' ),
 					'desc_tip'      => true,
 				),
 				'description' => array(
-					'title' => __( 'عنوان مشتری', 'woocommerce' ),
+					'title' => __( 'عنوان مشتری', 'assan_pardakht_gateway' ),
 					'type' => 'textarea',
 					'default' => ''
 				)
