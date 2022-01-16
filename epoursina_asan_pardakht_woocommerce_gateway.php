@@ -11,7 +11,7 @@
  * @package           Epoursina_asan_pardakht_woocommerce_gateway
  *
  * @wordpress-plugin
- * Plugin Name:       Epoursina_asan_pardakht_woocommerce_gateway
+ * Plugin Name:       Epoursina Asan Pardakht Woocommerce Gateway
  * Description:       This is client wordpress plugin for Asan pardakht crypto gateway
  * Version:           1.0.0
  * Author:            Emad Poursina
