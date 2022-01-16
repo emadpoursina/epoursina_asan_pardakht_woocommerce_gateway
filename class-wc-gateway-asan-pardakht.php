@@ -148,7 +148,6 @@ function init_epoursina_asan_pardakht_gateway_class() {
 			 * Process the order
 			 */
 			public function process_payment($order_id) {
-
 				// Set variables
 				global $woocommerce;
 				$order = wc_get_order( $order_id );
