@@ -43,7 +43,6 @@ function init_epoursina_asan_pardakht_gateway_class() {
 
 			function __construct() {
 				$this -> id = 'epoursina_asan_pardakht_gateway';
-				$this -> icon = plugin_dir_path . 'assests/images/logo.png';
 				$this -> icon = apply_filters('WC_Epoursina_AsanPar_logo', WP_PLUGIN_URL . '/' . plugin_basename(__DIR__) . '/assets/images/logo.png');
 				$this -> has_fields = false; 
 				$this -> method_title = __('درگاه رمزارز آسان پرداخت', 'woocommerce');
