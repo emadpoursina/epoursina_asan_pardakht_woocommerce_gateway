@@ -76,7 +76,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 				add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 
 				// Register callback handler
-				add_action( 'woocommerce_api_epoursina_asan-pardakht-callback', 				array( $this, 'process_getway_final_response' ) );
+				add_action( 'woocommerce_api_epoursina_asan-pardakht-callback', array( $this, 'process_getway_final_response' ) );
 			}
 
 			/**
