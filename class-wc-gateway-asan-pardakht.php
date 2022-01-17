@@ -256,16 +256,24 @@ function init_epoursina_asan_pardakht_gateway_class() {
 
 								$order->update_status('failed', __('', 'epoursina_asan_pardakht_gateway'));
 								wc_add_notice( __('خطای پرداخت۲: ', 'epoursina_asan_pardakht_gateway') . $error_message, 'error' );
+								if(wp_redirect( $woocommerce->cart->get_checkout_url())) {
+									exit;
+								}
 							}
 						}else {
 							$error_message = "پرداخت انجام نشد.";
 							$order -> update_status('failed', __('', 'epoursina_asan_pardakht_gateway'));
 							wc_add_notice( __('خطای پرداخت ۱: ', 'epoursina_asan_pardakht_gateway') . $error_message, 'error' );
+							if(wp_redirect( $woocommerce->cart->get_checkout_url())) {
+								exit;
+							}
 						}
 
 						$Notice = sprintf(__('در هنگام اتصال به درگاه خطای زیر رخ داده است : <br/>%s', 'woocommerce'), $error_message);
 						wc_add_notice($Notice, 'error');
-						return;
+						if(wp_redirect( $woocommerce->cart->get_checkout_url())) {
+							exit;
+						}
 					}
 
 					$authority = get_post_meta($order_id, 'epoursina_asan_authority', true);
