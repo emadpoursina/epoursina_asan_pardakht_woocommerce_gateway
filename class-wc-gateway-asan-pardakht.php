@@ -174,7 +174,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 					 * Handle first response,
 					 * get autherity and send customer to gateway website
 					 */
-				
+
 					if($response_body["status"] === 200) {
 						$authority = $response_body['authority'];
 						WC() -> session -> set('epoursina_asan-pardakht-gateway-authority', $authority);
@@ -277,7 +277,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 
 				// Error handling
 				if(!empty($error_message) && $error_message) {
-					$Notice = sprintf(__('در هنگام اتصال به درگاه خطای زیر رخ داده است : <br/>%s', 'woocommerce'), $error_message);
+					$Notice = sprintf(__('<p>در هنگام اتصال به درگاه خطای زیر رخ داده است : <br/>%s</p>', 'woocommerce'), $error_message);
 					wc_add_notice($Notice, 'error');
 
 					if(wp_redirect($woocommerce->cart->get_checkout_url())) {
@@ -310,7 +310,6 @@ function init_epoursina_asan_pardakht_gateway_class() {
 							break;
 						}
 					}
-
 					if(is_wp_error($response)) {
 						throw new Exception('درگاه پاسخ نداد', 1);
 					}
