@@ -242,8 +242,9 @@ function init_epoursina_asan_pardakht_gateway_class() {
 								$order->add_order_note( __('خرید کامل شد.', 'woothemes') );
 								$order->add_order_note( __("authority code: $authority", 'woothemes') );
 								update_post_meta($order_id, 'epoursina_asan_authority', $authority);
-
-								if(wp_redirect( $woocommerce->cart->get_checkout_url())) {
+								
+								// Return thankyou redirect
+								if(wp_redirect(add_query_arg('wc_status', 'success', $this->get_return_url($order)))) {
 									exit;
 								}
 							} elseif($response_body === false) {
@@ -271,7 +272,8 @@ function init_epoursina_asan_pardakht_gateway_class() {
 					$Notice = wpautop(wptexturize($this -> successMassage));
 					$Notice = str_replace('{authority}', $authority, $Notice);
 					wc_add_notice($Notice, 'success');
-					if(wp_redirect(add_query_arg('wc_status', 'success', $this->get_return_url($order)))){
+					// Return thankyou redirect
+					if(wp_redirect(add_query_arg('wc_status', 'success', $this->get_return_url($order)))) {
 						exit;
 					}
 				}
