@@ -186,7 +186,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 					} elseif($response_body === false) {
 						$error_message = 'درگاه پرداخت آسان پرداخت پاسخ نمی دهد.';
 					}else {
-						$error_message = 'تراکنش موفقیت آمیز نبود.';
+						$error_message .= "<p>خطا:‌ " . $response_body["message"] . "</p>";
 					}
 				}else {
 					$error_message = 'ارز نا معتبر: لطفا از یکی از ارزهای تتر یا دلار استفاده کنید.';
@@ -247,7 +247,10 @@ function init_epoursina_asan_pardakht_gateway_class() {
 							} elseif($response_body === false) {
 								$error_message = 'درگاه پرداخت آسان پرداخت پاسخ نمی دهد.';
 							}else {
-								$error_message = "پرداخت انجام نشد.";
+								$error_message = "<p>پرداخت انجام نشد.</p>";
+								$error_message .= "<p>کد درخواست:‌ " . $response_body["status"] . "</p>";
+								$error_message .= "</p>پیغام خطا: " . $response_body["message"] . "</p>";
+
 								$order->update_status('failed', __('', 'epoursina_asan_pardakht_gateway'));
 								wc_add_notice( __('خطای پرداخت۲: ', 'epoursina_asan_pardakht_gateway') . $error_message, 'error' );
 							}
