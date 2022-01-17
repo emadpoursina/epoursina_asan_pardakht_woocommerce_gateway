@@ -239,6 +239,8 @@ function init_epoursina_asan_pardakht_gateway_class() {
 								// Remove cart
 								$woocommerce->cart->empty_cart();
 								$order->payment_complete();
+								$order->add_order_note( __('خرید کامل شد.', 'woothemes') );
+								$order->add_order_note( __("authority code: $authority", 'woothemes') );
 								update_post_meta($order_id, 'epoursina_asan_authority', $authority);
 
 								if(wp_redirect( $woocommerce->cart->get_checkout_url())) {
