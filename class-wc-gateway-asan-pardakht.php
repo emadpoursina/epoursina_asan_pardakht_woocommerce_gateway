@@ -151,7 +151,6 @@ function init_epoursina_asan_pardakht_gateway_class() {
 				// Set variables
 				global $woocommerce;
 				$order = wc_get_order( $order_id );
-				WC() -> session -> set('epoursina_asan-pardakht-gateway-order_id', $order_id);
 				$currency = $order -> get_currency();
 				$strToLowerCurrency = strtolower($currency);
 				$amount = (int)$order -> order_total;
@@ -207,8 +206,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 			 * Process gateway response after callback
 			 */
 			public function process_getway_final_response() {
-				$order_id =  WC() -> session -> get('epoursina_asan-pardakht-gateway-order_id');
-				WC() -> session -> __unset('epoursina_asan-pardakht-gateway-order_id');
+				$order_id = explode('?', $_GET["wc_order"])[0];
 
 				global $woocommerce;
 
