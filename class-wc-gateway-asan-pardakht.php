@@ -164,9 +164,9 @@ function init_epoursina_asan_pardakht_gateway_class() {
 					 */
 					$endpoint = 'http://localhost:5000/payment/paymentRequest';
 					$data = array(
-						'amount' => $order -> get_total(),
-						'callbackURL' => 'http://localhost/wc-api/epoursina_asan-pardakht-callback/',
-						'gatewayKey' => 'dbc934e5-7361-4f0c-bdda-dec6e473ea99',
+						'amount' => $amount,
+						'callbackURL' => $callbackUrl,
+						'gatewayKey' => $this -> gatewayKey,
 					);
 					$response_body = $this -> sendRequest($endpoint, json_encode($data));
 
@@ -216,16 +216,17 @@ function init_epoursina_asan_pardakht_gateway_class() {
 					if ($order -> status !== 'completed') {
 						$authority = WC() -> session -> get('epoursina_asan-pardakht-gateway-authority');
 						WC() -> session -> __unset('epoursina_asan-pardakht-gateway-authority');
+						$response_authority = explode('=', explode('?', $_GET["wc_order"])[1])[1];
 
 						// Compare session data to response body
-						if($_GET['status'] === 'OK' && $_GET['authority'] === $authority) {
+						if($_GET["status"] === "OK" && $response_authority === $authority) {
 							/**
 							 * Final check for payment success
 							 */
 							$endpoint = 'http://localhost:5000/payment/checkPay';
 							$data = array(
 								'authority' => $authority,
-								'gatewayKey' => 'dbc934e5-7361-4f0c-bdda-dec6e473ea99',
+								'gatewayKey' => $this -> gatewayKey,
 							);
 							$response_body = $this -> sendRequest($endpoint, json_encode($data));
 
