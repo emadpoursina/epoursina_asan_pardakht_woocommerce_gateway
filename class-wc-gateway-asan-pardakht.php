@@ -162,7 +162,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 					/**
 					 * Get authority from gateway site
 					 */
-					$endpoint = 'http://localhost:5000/payment/paymentRequest';
+					$endpoint = 'https://gateway.academyvazheh.ir/payment/paymentRequest';
 					$data = array(
 						'amount' => $amount,
 						'callbackURL' => $callbackUrl,
@@ -181,7 +181,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 
 						return array(
 							'result' => 'success',
-							'redirect' => "http://localhost:5000/payment/startPay/" . $authority 
+							'redirect' => "https://gateway.academyvazheh.ir/payment/startPay/" . $authority 
 						);
 					} elseif($response_body === false) {
 						$error_message = 'درگاه پرداخت آسان پرداخت پاسخ نمی دهد.';
@@ -223,7 +223,7 @@ function init_epoursina_asan_pardakht_gateway_class() {
 							/**
 							 * Final check for payment success
 							 */
-							$endpoint = 'http://localhost:5000/payment/checkPay';
+							$endpoint = 'https://gateway.academyvazheh.ir/payment/checkPay';
 							$data = array(
 								'authority' => $authority,
 								'gatewayKey' => $this -> gatewayKey,
